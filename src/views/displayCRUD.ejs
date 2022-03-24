@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getUsers</title>
+</head>
+<body>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+    
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    </head>
+    
+    <body>
+    
+        <h2>HTML Table</h2>
+    
+        <table>
+            <tr>
+                <th>Email</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+            <% for(var i=0; i<data.length; i++){ %>
+                <tr>
+                    <td>
+                        <%= data[i].email %>
+                    </td>
+                    <td>
+                        <%= data[i].firstName %>
+                    </td>
+                    <td>
+                        <%= data[i].lastName %>
+                    </td>
+                    <td>
+                        <%= data[i].address %>
+                    </td>
+                    <td>
+                        <a href="/editCRUD?id=<%= data[i].id %>" style="background-color: orange;border: none;height: 24px;width: 60px;margin-right: 1rem;cursor: pointer;padding: .35rem;">Update</a>
+                        <a href="/deleteCRUD?id=<%= data[i].id %>" style="background-color: red;border: none;height: 24px;width: 60px;margin-right: 1rem;cursor: pointer;padding: .35rem;">Delete</a>
+                    </td>
+                </tr>
+            <% } %>
+        </table>
+</body>
+</html>
